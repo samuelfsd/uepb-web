@@ -1,0 +1,64 @@
+<!-- Tags Fundamentais -->
+
+<!-- Cabeçalhos -->
+<h1>Este é um Cabeçalho H1</h1>
+
+<!-- Parágrafos -->
+<p>Este é um parágrafo simples.</p>
+
+<!-- Link -->
+<p>Visite o <a href="https://www.google.com" target="_blank">Google</a> para fazer uma pesquisa na web.</p>
+
+<!-- Imagens -->
+<img src="https://picsum.photos/200" alt="">
+
+<!-- Lista não ordenada -->
+<h4>Lista de itens não ordenada:</h4>
+<ul>
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
+</ul>
+
+<!-- Lista ordenada -->
+<h4>Lista de itens ordenada:</h4>
+<ol>
+  <li>Primeiro item</li>
+  <li>Segundo item</li>
+  <li>Terceiro item</li>
+</ol>
+
+<!-- Tabela -->
+<h4>Tabela de Exemplo:</h4>
+<table border="1">  1
+    <tr>
+        <th>Nome</th>
+        <th>Idade</th>
+        <th>Cidade</th>
+    </tr>
+    <tr>
+        <td>José</td>
+        <td>23</td>
+        <td>João Pessoa</td>
+    </tr>
+    <tr>
+        <td>João</td>
+        <td>25</td>
+        <td>Patos</td>
+    </tr>
+    <tr>
+        <td>Maria</td>
+        <td>20</td>
+        <td>Recife</td>
+    </tr>
+</table>
+
+<!-- Formatação de texto -->
+<p>É possível adicionar <strong>negrito</strong>, <em>itálico</em>, e <u>sublinhado</u> ao texto.</p>
+
+
+<input type="text">
+
+<button>Entrar</button>
+<button>Sair</button>
+<button>Concluir</button>
