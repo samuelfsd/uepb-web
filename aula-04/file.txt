@@ -1,0 +1,63 @@
+// js here !!!
+
+// comentário de uma linha
+
+/* isto é um comentário longo
+   de múltiplas linhas.
+ */
+
+// /* Você não pode, porém, /* aninhar comentários */ SyntaxError */
+
+
+
+// declaração de variáveis
+
+let val1 = 'oi'
+let val2 = 10
+const arr = [10,'25', {name: 'João'}]
+
+// tipos de dados
+
+// string
+let name = 'John Doe'
+
+// Boolean
+const isMusicPlaying = true
+
+// Number
+let volume = 20
+
+// Undefined
+let val
+
+// Null
+let timesPlayed = null
+
+// Operadores
+
+// aritméticos -> +, -, *, /, %
+
+// atribuição -> == === != > < >= <=
+
+// operadores lógicos -> && || ! -> !!
+
+// controle de fluxo
+
+if (condição) {}
+
+if (cond) {
+
+} else if (cond) {}
+else {}
+
+// estruturas de repetições
+
+for(let i; i < x; i++) {}
+for (const element of object) {}
+for (const key in object) {}
+
+while(cond) {}
+
+// funções
+
+function nameFunction () {}
