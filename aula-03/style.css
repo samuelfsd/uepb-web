@@ -14,16 +14,25 @@
 }
 
 /* entendendo -> display flex */
+.container {
+  width: 500px;
+  height: 300px;
 
-.container {}
+  border: 2px solid red;
+  display: flex;
+  gap: 0 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .card {
   width: 50px;
   height: 50px;
-  padding: 5px;
 
-  background:aliceblue;
+  border:1px solid aliceblue;
 
-  color: #242424;
-	text-align: center;
+  color:aliceblue;
+  text-align: center;
 }
