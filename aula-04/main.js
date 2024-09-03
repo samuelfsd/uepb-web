@@ -2,26 +2,25 @@
 
 // comentário de uma linha
 
-/* isto é um comentário longo
-   de múltiplas linhas.
- */
+/*
+  isto é um comentário longo
+  de múltiplas linhas.
+*/
 
-// /* Você não pode, porém, /* aninhar comentários */ SyntaxError */
+// declaração de variáveis\
 
+// tipos de dados
 
-// declaração de variáveis
+// operadores aritméticos
 
-// tipos de dados ->
+// operadores de comparação
 
-// operadores aritméticos -> +, -, *, /, %
+// operadores lógicos
 
-// operadores de comparação -> == === != > < >= <=
+// controle de fluxo
 
-// operadores lógicos -> && || ! -> !!
-
-// controle de fluxo -> if else else if
-
-// estruturas de repetições -> for forin forof
+// estruturas de repetições
 
 // funções
+
 
