@@ -1,0 +1,60 @@
+// entendendo o JSX
+
+export function App() {
+  return (
+    <div>
+      <h2>Nome</h2>
+      <p>Sobre</p>
+      <img src="" alt="" />
+      <button>Learn More</button>
+    </div>
+  )
+}
+
+//  entendendo componentes
+
+function Card() {
+  return (
+    <div>
+      <h2>Nome</h2>
+      <p>Sobre</p>
+      <img src="" alt="" />
+      <button>Learn More</button>
+    </div>
+  )
+}
+
+export function App() {
+  return (
+    <>
+      <Card />
+      <Card />
+      <Card />
+      <Card />
+    </>
+  )
+}
+
+// entendendo props
+
+function Card(props) {
+  return (
+    <div>
+      <h2>{props.title}</h2>
+      <p>{props.about}</p>
+      {props.sourceImage !== null ? <img src={props.sourceImage} alt="" /> : null}
+      <button>Learn More</button>
+    </div>
+  )
+}
+
+export function App() {
+  return (
+    <>
+      <Card title="Samuel" about="Desenvolvedor" sourceImage="https://github.com/samuelfsd.png" />
+      <Card title="Zé" />
+      <Card />
+      <Card />
+    </>
+  )
+}
