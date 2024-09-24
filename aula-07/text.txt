@@ -77,7 +77,7 @@ export function App() {
   return (
     <div>
       <div>
-        <span>{counter}</span>
+        {counter !== 0 && <span>{counter}</span>}
       </div>
       <button onClick={add}>+</button>
       <button onClick={remove}>-</button>
