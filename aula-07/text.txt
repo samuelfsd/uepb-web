@@ -58,3 +58,29 @@ export function App() {
     </>
   )
 }
+
+// entendendo o estado
+
+export function App() {
+  let counter = 0
+
+  const add = () => {
+    counter += 1
+    console.log(counter)
+  }
+
+  const remove = () => {
+    counter -= 1
+    console.log(counter)
+  }
+
+  return (
+    <div>
+      <div>
+        <span>{counter}</span>
+      </div>
+      <button onClick={add}>+</button>
+      <button onClick={remove}>-</button>
+    </div>
+  )
+}
