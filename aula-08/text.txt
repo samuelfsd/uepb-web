@@ -1,0 +1,77 @@
+// entender como a comunicação entre componentes pode funcionar
+
+Primeiro no ComunacationComponents
+
+// lidando com eventos simples
+
+export function EventExample() {
+
+  const handleClick = () => {
+    console.log('clicou')
+  }
+
+  const handleMouseEnter = () => {
+    console.log('passou aqui')
+  }
+
+  return (
+    <>
+      <h1 onMouseEnter={handleMouseEnter}>Passa aqui</h1>
+      <button onClick={handleClick}>Clica aqui boy</button>
+    </>
+  )
+}
+
+// entendendo o ciclo de vida
+
+import { useState } from "react"
+
+const Title = ({ children }) => <h3>{children}</h3>
+
+export function LifeCycleExample() {
+  const [count, setCount] = useState(0)
+
+  const handleAdd = () => setCount(prevState => prevState + 1)
+  const handleRemove = () => setCount(prevState => prevState - 1)
+
+  return (
+    <>
+     {count !== 0 && <Title>{count}</Title>}
+
+     <button onClick={handleAdd}>+</button>
+     <button onClick={handleRemove}>-</button>
+    </>
+  )
+}
+
+// exemplo prático useEffect
+
+import React, { useState, useEffect } from 'react';
+
+export function UserProfile() {
+  const [user, setUser] = useState({});
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setUser({ name: 'João', age: 28 });
+      setLoading(false);
+    }, 2000);
+
+    return () => {
+      console.log('Componente desmontado, limpando recursos...');
+    };
+  }, []);
+
+  if (loading) {
+    return <p>Carregando dados...</p>;
+  }
+
+  return (
+    <div>
+      <h1>Perfil do Usuário</h1>
+      <p>Nome: {user.name}</p>
+      <p>Idade: {user.age}</p>
+    </div>
+  );
+}
