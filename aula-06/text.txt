@@ -1,0 +1,95 @@
+// parte introdutória
+
+const firstNumber = 10;
+const secondNumber = 5;
+
+let thirdNumber = firstNumber + secondNumber
+console.log(thirdNumber)
+
+setTimeout(() => {
+  thirdNumber = firstNumber - secondNumber;
+  console.log(thirdNumber)
+}, 3000)
+
+console.log(thirdNumber)
+
+// agora entendendo promises
+
+const generateRandomNumber = () => Math.round(Math.random() * 10);
+
+const resolvedPromise = () => new Promise((resolve, reject) => {
+  setTimeout(() => {
+    const randomNumber = generateRandomNumber();
+    resolve(randomNumber)
+  }, 1000)
+})
+
+const rejectedPromise = () => new Promise((resolve, reject) => {
+  setTimeout(() => {
+    const randomNumber = generateRandomNumber();
+    reject(new Error(`O número gerado não é válido! - ${randomNumber}`))
+  }, 1000)
+})
+
+const randomPromise = () => new Promise((resolve, reject) => {
+  setTimeout(() => {
+    const randomNumber = generateRandomNumber();
+    if (randomNumber % 2 === 0) {
+      resolve(randomNumber)
+    } else {
+      reject(new Error('Erro no número gerado!'))
+    }
+  }, 1000)
+})
+
+// resolvedPromise().then((response) => {
+//   console.log(response)
+// })
+
+// rejectedPromise().then((response) => {
+//   consoe.log('Foi rejeitada?')
+// }).catch((error) => {
+//   console.log(error.message)
+// })
+
+randomPromise().then((response) => {
+  console.log(response)
+}).catch((error) => {
+  console.log(error.message)
+})
+
+// passando para async - await
+
+const API_URL = `https://dummyjson.com/quotes/random`
+
+const getBtnElement = document.querySelector('.btnElement')
+const quoteText = document.querySelector('.quoteText')
+const authorText = document.querySelector('.authorText')
+const errorText = document.querySelector('.errorText')
+
+getBtnElement.addEventListener('click', async () => {
+  // fetch(API_URL)
+  //   .then((response) => response.json())
+  //   .then((data) => {
+  //     quoteText.innerHTML = data.quote;
+  //     authorText.innerHTML = data.author
+  //     errorText.innerHTML = ""
+  //   })
+  //   .catch((error) => {
+  //     quoteText.innerHTML = ""
+  //     authorText.innerHTML = ""
+  //     errorText = `Error getting quote: ${error.message}`
+  //   })
+
+  try {
+    const response = await fetch(API_URL)
+    const data = await response.json()
+    quoteText.innerHTML = data.quote;
+    authorText.innerHTML = data.author
+    errorText.innerHTML = ""
+  } catch (error) {
+    quoteText.innerHTML = ""
+    authorText.innerHTML = ""
+    errorText.innerHTML = `Error getting quote: ${error.message}`
+  }
+})
