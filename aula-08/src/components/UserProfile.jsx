@@ -11,8 +11,6 @@ export function UserProfile() {
     }, 3000)
   }, [])
 
-  useEffect
-
   return (
     <div>
       {loading ? <p>carregando...</p> :
