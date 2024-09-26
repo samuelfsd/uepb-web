@@ -3,9 +3,11 @@ function Parent() {
     console.log('Hello');
   }
 
-  return <></>;
+  return <Child onSayHello={handleSayHello} />
 }
 
-function Child() {
-  return <button>Clique aqui</button>;
+function Child({ onSayHello }) {
+  return (
+      <button onClick={onSayHello}>Clique aqui</button>
+  );
 }
