@@ -1,0 +1,35 @@
+// criando uma aplicação express com javascript
+// criar o package.json com o npm init -y
+// instalar as deps do express
+
+npm i express
+
+// criando o servidor
+// abrindo o diretório src
+// adicionando no app.js
+
+const express = require('express');
+const app = express();
+
+module.exports = app;
+
+// criando um arquivo server.jss
+// adicionando o app e usando a função listen
+
+const app = require('./app');
+
+app.listen(3001, () => console.log('server running on port 3001'));
+
+
+// adicionar o nodemon ou mostrar ao pessoal o nodemon instalado
+// instalar o nodemon como dep de desenvolvimento
+// adicionar no package.json no script de dev e rodar a aplicação
+
+"scripts": {
+  "start": "node src/server.js",
+  "dev": "nodemon src/server.js"
+},
+
+// criar primeiro endpoint exemplificando req e res na prática, indo para o hello world
+
+app.get('/', (req, res) => res.status(200).json({ message: 'Olá Mundo!' }));
