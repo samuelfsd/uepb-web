@@ -1,0 +1,42 @@
+// cria arquivo index.js
+// aula para pegar de exemplos módulos internos do node
+
+const path = require('path')
+
+console.log(path.dirname('usr/share/gnome'))
+console.log(path.resolve('usr', 'share', 'gnome'))
+console.log(path.resolve('/', 'usr', 'share', 'gnome'))
+
+manipulando módulos internos
+
+
+// criar um arquivo temp para criar módulos locais
+
+const celsiusToFahrenheit = (value) => (value * 1.8) + 32
+
+const fahrenheitToCelsius = (value) => (value - 32) / 1.8
+
+module.exports = {
+  celsiusToFahrenheit,
+  fahrenheitToCelsius
+}
+
+lá no index importar os módulos
+
+const { celsiusToFahrenheit } = require('./temp')
+
+console.log(celsiusToFahrenheit(40))
+
+// utilizar o npm e sua CLI
+
+npm init -y -> criando arquivo package.json com inicializações padrões
+
+npm install -> para adicionar uma dependência externa
+
+npm i is-even
+
+vai pro arquivo index.js e adiciona a dep
+
+const isEven = require('is-even')
+
+console.log(isEven(2))
