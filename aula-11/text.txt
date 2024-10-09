@@ -1,3 +1,0 @@
-// iniciando o projeto com a cli do npm
-
-npm init -y
