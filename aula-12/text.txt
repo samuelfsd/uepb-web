@@ -1,0 +1,122 @@
+// criando modelo
+
+class Student {
+  constructor(id, name, course, enrollment) {
+    this.id = id;
+    this.name = name;
+    this.course = course;
+    this.enrollment = enrollment;
+  }
+}
+
+module.exports = Student
+
+// criando repository
+
+const Student = require('../models/studentModel')
+
+let students = [
+  new Student(1, 'João', 'Computação', '2323123'),
+  new Student(2, 'Maria', 'Física', '323123'),
+]
+
+class StudentRepository {
+  getAll() {
+    return students;
+  }
+
+  getById(id) {
+    return students.find(student => student.id === id)
+  }
+  create(student) {
+    student.id = students.length + 1
+    students.push(student)
+    return student;
+  }
+  update(id, updatedStudent) {
+    const index = students.findIndex(student => student.id === id)
+    if (index !== -1) {
+      students[index] = {...students[index], ...updatedStudent}
+      return students[index]
+    }
+    return null
+  }
+
+  delete(id) {
+    students = students.filter(student => student.id !== id)
+    return true
+  }
+}
+
+module.exports = new StudentRepository()
+
+// criando serviço
+
+const Student = require('../models/studentModel')
+const repository = require('../repositories/StudentRepository')
+
+class StudentService {
+  getAllStudents() {
+    return repository.getAll();
+  }
+  getStudentById(id) {
+    return repository.getById(id);
+  }
+  addStudent(data) {
+    const {name, course, enrollment} = data
+    const newStudent = new Student(null, name, course, enrollment);
+    return repository.create(newStudent)
+  }
+  updateStudent(id, data) {
+    return repository.update(id, data)
+  }
+  deleteStudent(id) {
+    return repository.delete(id)
+  }
+}
+
+module.exports = new StudentService()
+
+// criando controller
+
+const studentService = require('../services/StudentService');
+
+class StudentController {
+  getAll(req, res) {
+    const students = studentService.getAllStudents();
+    res.json(students);
+  }
+
+  getById(req, res) {
+    const id = parseInt(req.params.id);
+    const student = studentService.getStudentById(id);
+    if (student) {
+      res.json(student);
+    } else {
+      res.status(404).json({ message: 'Estudante não encontrado' });
+    }
+  }
+
+  add(req, res) {
+    const newStudent = studentService.addStudent(req.body);
+    res.status(201).json(newStudent);
+  }
+
+  update(req, res) {
+    const id = parseInt(req.params.id);
+    const updatedStudent = studentService.updateStudent(id, req.body);
+    if (updatedStudent) {
+      res.json(updatedStudent);
+    } else {
+      res.status(404).json({ message: 'Estudante não encontrado' });
+    }
+  }
+
+  delete(req, res) {
+    const id = parseInt(req.params.id);
+    studentService.deleteStudent(id);
+    res.json({ message: 'Estudante removido com sucesso' });
+  }
+}
+
+module.exports = new StudentController();
